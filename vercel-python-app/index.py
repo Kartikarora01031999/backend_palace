@@ -19,7 +19,7 @@ def home():
     subject='Booking Enquiry by '+data["password"] +" Email: "+data["email"],
     html_content='<strong>'+data["startTime"]+"<br>"+data["endTime"]+"<br>"+data["date"]+"<br>"+data["message"]+"<strong>")
 
-    sg = SendGridAPIClient("os.getenv('SENDGRID_API_KEY')")
+    sg = SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
     response = sg.send(message)
     return jsonify("Mail Sent Successfully")
 
